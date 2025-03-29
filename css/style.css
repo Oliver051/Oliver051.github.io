@@ -1,59 +1,22 @@
 body {
     background-color: #CCD1D1;
-    font-family: "Times New Roman", serif;
+    font-family: "Noto Serif TC", "Times New Roman", serif;
     font-size: 16px;
-    color: #333333; /* 整體文字顏色設為深灰色 */
-    line-height: 1.5; /* 行距設為 1.5 倍字體大小 */
+    color: #333333; 
+    line-height: 1.6; /* 提高閱讀性 */
 }
 
-/* 針對繁體中文使用適當字體 */
-body:lang(zh-TW), p:lang(zh-TW), h1:lang(zh-TW), h2:lang(zh-TW) {
-    font-family: "Noto Serif Traditional Chinese", sans-serif;
+/* 讓英文單詞使用更適合的字體 */
+:lang(en) {
+    font-family: "Times New Roman", serif;
     font-weight: 500;
 }
 
-/* 針對英文使用適當字體 */
-body:lang(en), p:lang(en), h1:lang(en), h2:lang(en) {
-    font-family: "Times New Roman", serif;
-    font-weight: normal;
-}
-
-h1 {
-    font-size: 32px; /* 標題 1 設為 32 像素 */
-    font-weight: normal;
-    color: #000000;
-}
-
-h2 {
-    font-size: 22px; /* 標題 2 設為 22 像素 */
-    font-weight: normal;
-    color: #000000;
-}
-
-p {
-    font-size: 14px; /* 段落文字設為 14 像素 */
-    font-weight: normal;
-    color: #000000;
-}
-
-pre {
+/* 讓 `code`、`pre` 內的字體更清楚 */
+pre, code {
     font-family: "Courier New", monospace;
-    font-size: 14px;
     background-color: #f4f4f4;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius: 5px;
     overflow-x: auto;
-    white-space: pre-wrap; /* 讓長行自動換行 */
-    word-wrap: break-word; /* 讓長單字換行 */
-}
-
-code {
-    font-family: "Courier New", monospace;
-    background-color: #f4f4f4;
-    padding: 2px 4px;
-    border-radius: 3px;
-    white-space: nowrap; /* 避免單行 code 斷行 */
-}
-3px;
 }
