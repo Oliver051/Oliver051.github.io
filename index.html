@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <title>我的專案展示</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="使用 Arduino Uno R3 和 ESP32 進行 IoT 小型實作，透過 WiFi 控制 LED 亮滅">
+    <title>專案 1 - Arduino & ESP32 IoT</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1><CENTER>我的小專案<span lang="en">-Oliver Chen</span></CENTER></h1>
-    <h2>關於我</h2>
-    <p>你好，我叫Oliver，我是一名熱愛程式設計的大學生，這是我的一些小專案，歡迎指教!</p>
-    
-    <p>點擊下方專案清單:</p>
-    <ul>
-        <li><a href="projects/project1.html">專案 1：arduino與ESP32的IoT實作</a></li>
-        <li><a href="projects/project2.html">專案 2：我的第二個專案</a></li>
-    </ul>
-    
-    <h2>專案預覽</h2>
-    <a href="projects/project1.html"><img src="/images/proj1-pic1.jpg" alt="專案 1 預覽" class="preview-img"></a>
+
+    <h1>專案 1: <span lang="en">Arduino Uno R3</span> 與 <span lang="en">ESP32</span> 小型 <span lang="en">IoT</span> 實作</h1>
+
+    <p>這是我的第一個專案，使用 <span lang="en">Arduino</span> 與 <span lang="en">ESP32</span> 遠端控制 <span lang="en">LED</span> 亮滅。</p>
+
+    <h2>開發背景</h2>
+    <p>這個專案是我在學習 <span lang="en">Arduino</span> 與 <span lang="en">ESP32</span> 時製作的，目標是使用 <span lang="en">ESP32</span>
+    透過 <span lang="en">WiFi</span> 建立 <span lang="en">Server</span>，接收 <span lang="en">HTTP</span> 請求，然後將指令傳給
+    <span lang="en">Arduino</span> 判斷後，發送訊號控制 <span lang="en">LED</span> 亮滅。</p>
+
+    <h2>專案截圖</h2>
+    <img src="/images/proj1-pic1.jpg" alt="專案 1 截圖" class="project-img">
+
+    <h2>專案影片</h2>
+    <!-- 插入影片 -->
+    <video width="640" height="360" controls>
+        <source src="/videos/proj1-video.mp4" type="video/mp4">
+        您的瀏覽器不支持 HTML5 影片標籤。
+    </video>
+
+    <h2>程式碼片段</h2>
+    <pre><code>print("Hello, World!")</code></pre>
+
+    <p><a href="/index.html">返回主頁</a></p>
+
 </body>
 </html>
