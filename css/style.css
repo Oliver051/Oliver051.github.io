@@ -23,7 +23,6 @@ body {
 }
 
 video {
-    transform: rotate(90deg);
 }
 
 /* 讓 `code`、`pre` 內的字體更清楚 */
