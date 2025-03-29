@@ -32,7 +32,7 @@
     </video>
 
     <h2>程式碼片段:<span lang="en">Arduino</span></h2>
-    <pre><code>#include <SoftwareSerial.h>
+    <pre><code>#include &lt;SoftwareSerial.h&gt;
 
 SoftwareSerial espSerial(2, 3); // RX = D2, TX = D3
 const int ledPin = 5;  // LED 連接到 D5
@@ -59,9 +59,10 @@ void loop() {
         }
     }
 }</code></pre>
+    
     <h2>程式碼片段:<span lang="en">ESP32</span></h2>
-    <pre><code>#include <WiFi.h>
-#include <WebServer.h>
+    <pre><code>#include &lt;WiFi.h&gt;
+#include &lt;WebServer.h&gt;
 
 const char* ssid = "TESTESP";
 const char* password = "00000000";
@@ -73,7 +74,7 @@ WebServer server(80);
 void setup() {
     Serial.begin(115200);
     Serial2.begin(9600, SERIAL_8N1, RXD, TXD);  // 使用 Serial2 (ESP32 TX = GPIO17, RX = GPIO16)
-    
+
     pinMode(2, OUTPUT);  // 內建 LED
     WiFi.begin(ssid, password);
 
@@ -88,50 +89,49 @@ void setup() {
     // 設定 HTML 頁面
     server.on("/", []() {
         server.send(200, "text/html; charset=utf-8",
-            "<html><head><title>ESP32 LED 控制</title>"
-            "<style>"
+            "&lt;html&gt;&lt;head&gt;&lt;title&gt;ESP32 LED 控制&lt;/title&gt;"
+            "&lt;style&gt;"
             "body { text-align: center; font-family: sans-serif; background: linear-gradient(to bottom, #ff7e5f, #feb47b); }"
             "button { font-size: 20px; padding: 10px 20px; margin: 10px; background-color: green; color: white; border: none; border-radius: 10px; }"
-            "</style></head>"
-            "<body><h1>Arduino & ESP32 LED 燈光控制</h1>"
-            "<button onclick=\"controlLED('on')\">開燈</button>"
-            "<button onclick=\"controlLED('off')\">關燈</button>"
-            "<button onclick=\"controlLED('blink')\">閃爍</button>"
-            "<script>"
+            "&lt;/style&gt;&lt;/head&gt;"
+            "&lt;body&gt;&lt;h1&gt;Arduino & ESP32 LED 燈光控制&lt;/h1&gt;"
+            "&lt;button onclick=\"controlLED('on')\"&gt;開燈&lt;/button&gt;"
+            "&lt;button onclick=\"controlLED('off')\"&gt;關燈&lt;/button&gt;"
+            "&lt;button onclick=\"controlLED('blink')\"&gt;閃爍&lt;/button&gt;"
+            "&lt;script&gt;"
             "function controlLED(action){"
             "var xhr=new XMLHttpRequest();"
             "xhr.open('GET', '/'+action, true);"
             "xhr.send();"
             "}"
-            "</script></body></html>"
+            "&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;"
         );
     });
 
-
     // 開燈
     server.on("/on", []() {
-        Serial2.write('1');  // 透過 Serial2 送出 '1' 給 Arduino
+        Serial2.write('1');
         digitalWrite(2, HIGH);
         server.send(200, "text/plain", "LED is ON");
     });
 
     // 關燈
     server.on("/off", []() {
-        Serial2.write('0');  // 透過 Serial2 送出 '0' 給 Arduino
+        Serial2.write('0');
         digitalWrite(2, LOW);
         server.send(200, "text/plain", "LED is OFF");
     });
 
     server.on("/blink", []() {
-    for (int i = 0; i < 5; i++) {
-        Serial2.write('1');
-        digitalWrite(2, HIGH);
-        delay(500);
-        Serial2.write('0');
-        digitalWrite(2, LOW);
-        delay(500);
-    }
-    server.send(200, "text/plain", "LED is Blinking");
+        for (int i = 0; i < 5; i++) {
+            Serial2.write('1');
+            digitalWrite(2, HIGH);
+            delay(500);
+            Serial2.write('0');
+            digitalWrite(2, LOW);
+            delay(500);
+        }
+        server.send(200, "text/plain", "LED is Blinking");
     });
 
     server.begin();
@@ -141,7 +141,8 @@ void setup() {
 void loop() {
     server.handleClient();
 }
-    </code></pre>
+</code></pre>
+
     <p><a href="/index.html">返回主頁</a></p>
 
 </body>
