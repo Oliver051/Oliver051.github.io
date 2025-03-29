@@ -17,9 +17,14 @@ body {
     height: auto; /* 高度自動調整，保持比例 */
 }
 
-.project-img {
-    width: 500px; /* 專案頁面圖片寬度 */
-    height: auto;
+.image-container {
+    display: flex; 
+    gap: 10px; /* 圖片之間的間距 */
+    justify-content: center; /* 置中排列 */
+}
+
+.image-container img {
+    width: 45%;
 }
 
 video {
