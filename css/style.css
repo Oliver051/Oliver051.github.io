@@ -6,7 +6,7 @@ body {
     line-height: 1.5; /* 行距設為 1.5 倍字體大小 */
 }
 
-:lang(zh) {
+:lang(zh-TW) {
     font-family: "Noto Serif Traditional Chinese", sans-serif;
     font-weight: 500; /* 稍粗一點 */
 }
@@ -18,13 +18,13 @@ h1 {
 }
 
 h2 {
-    font-size: 14px; /* 段落文字設為 14 像素 */
+    font-size: 22px; /* 段落文字設為 14 像素 */
     font-weight: normal; /* 段落文字設為正常粗細 */
     color: #000000; /* 段落文字設為黑色 */
 }
 
 p {
-    font-size: 22px; /* 段落文字設為 22 像素 */
+    font-size: 14px; /* 段落文字設為 22 像素 */
     font-weight: normal; /* 段落文字設為正常粗細 */
     color: #000000; /* 段落文字設為黑色 */
 }
