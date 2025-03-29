@@ -31,9 +31,117 @@
         您的瀏覽器不支持 HTML5 影片標籤。
     </video>
 
-    <h2>程式碼片段</h2>
-    <pre><code>print("Hello, World!")</code></pre>
+    <h2>程式碼片段:<span lang="en">Arduino</span></h2>
+    <pre><code>#include <SoftwareSerial.h>
 
+SoftwareSerial espSerial(2, 3); // RX = D2, TX = D3
+const int ledPin = 5;  // LED 連接到 D5
+
+void setup() {
+    pinMode(ledPin, OUTPUT);
+    digitalWrite(ledPin, LOW);  // 預設關閉 LED
+    Serial.begin(115200);
+    espSerial.begin(9600);  // 與 ESP32 通訊
+}
+
+void loop() {
+    if (espSerial.available()) {
+        char command = espSerial.read();
+        Serial.print("收到命令: ");
+        Serial.println(command);  // 顯示收到的指令
+
+        if (command == '1') {
+            digitalWrite(ledPin, HIGH);  // 開燈
+            Serial.println("LED ON");
+        } else if (command == '0') {
+            digitalWrite(ledPin, LOW);   // 關燈
+            Serial.println("LED OFF");
+        }
+    }
+}</code></pre>
+    <h2>程式碼片段:<span lang="en">ESP32</span></h2>
+    <pre><code>#include <WiFi.h>
+#include <WebServer.h>
+
+const char* ssid = "TESTESP";
+const char* password = "00000000";
+
+WebServer server(80);
+#define TXD 17
+#define RXD 16
+
+void setup() {
+    Serial.begin(115200);
+    Serial2.begin(9600, SERIAL_8N1, RXD, TXD);  // 使用 Serial2 (ESP32 TX = GPIO17, RX = GPIO16)
+    
+    pinMode(2, OUTPUT);  // 內建 LED
+    WiFi.begin(ssid, password);
+
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    Serial.println("\nWiFi 連線成功");
+    Serial.print("IP 地址: ");
+    Serial.println(WiFi.localIP());
+
+    // 設定 HTML 頁面
+    server.on("/", []() {
+        server.send(200, "text/html; charset=utf-8",
+            "<html><head><title>ESP32 LED 控制</title>"
+            "<style>"
+            "body { text-align: center; font-family: sans-serif; background: linear-gradient(to bottom, #ff7e5f, #feb47b); }"
+            "button { font-size: 20px; padding: 10px 20px; margin: 10px; background-color: green; color: white; border: none; border-radius: 10px; }"
+            "</style></head>"
+            "<body><h1>Arduino & ESP32 LED 燈光控制</h1>"
+            "<button onclick=\"controlLED('on')\">開燈</button>"
+            "<button onclick=\"controlLED('off')\">關燈</button>"
+            "<button onclick=\"controlLED('blink')\">閃爍</button>"
+            "<script>"
+            "function controlLED(action){"
+            "var xhr=new XMLHttpRequest();"
+            "xhr.open('GET', '/'+action, true);"
+            "xhr.send();"
+            "}"
+            "</script></body></html>"
+        );
+    });
+
+
+    // 開燈
+    server.on("/on", []() {
+        Serial2.write('1');  // 透過 Serial2 送出 '1' 給 Arduino
+        digitalWrite(2, HIGH);
+        server.send(200, "text/plain", "LED is ON");
+    });
+
+    // 關燈
+    server.on("/off", []() {
+        Serial2.write('0');  // 透過 Serial2 送出 '0' 給 Arduino
+        digitalWrite(2, LOW);
+        server.send(200, "text/plain", "LED is OFF");
+    });
+
+    server.on("/blink", []() {
+    for (int i = 0; i < 5; i++) {
+        Serial2.write('1');
+        digitalWrite(2, HIGH);
+        delay(500);
+        Serial2.write('0');
+        digitalWrite(2, LOW);
+        delay(500);
+    }
+    server.send(200, "text/plain", "LED is Blinking");
+    });
+
+    server.begin();
+    Serial.println("伺服器啟動完成");
+}
+
+void loop() {
+    server.handleClient();
+}
+    </code></pre>
     <p><a href="/index.html">返回主頁</a></p>
 
 </body>
