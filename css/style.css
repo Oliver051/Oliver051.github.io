@@ -8,14 +8,13 @@ body {
 
 :lang(zh) {
     font-family: "Noto Serif Traditional Chinese", sans-serif;
-    font-size: 18px; /* 中文字體稍大 */
     font-weight: 500; /* 稍粗一點 */
 }
 
 h1 {
     font-size: 32px; /* 標題 1 設為 32 像素 */
     font-weight: normal; /* 段落文字設為正常粗細 */
-    color: #000000; /* 標題設為藍色 */
+    color: #000000; /* 標題設為黑色 */
 }
 
 h2 {
@@ -24,6 +23,11 @@ h2 {
     color: #000000; /* 段落文字設為黑色 */
 }
 
+p {
+    font-size: 22px; /* 段落文字設為 22 像素 */
+    font-weight: normal; /* 段落文字設為正常粗細 */
+    color: #000000; /* 段落文字設為黑色 */
+}
 pre {
     font-family: "Courier New", monospace;
     font-size: 14px;
