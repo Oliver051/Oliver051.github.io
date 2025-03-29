@@ -1,9 +1,15 @@
 body {
     background-color: #CCD1D1;
-    font-family: "Times New Roman", "Noto Serif Traditional Chinese", serif;
+    font-family: "Times New Roman",  serif;
     font-size: 16px;
     color: #333333; /* 整體文字顏色設為深灰色 */
     line-height: 1.5; /* 行距設為 1.5 倍字體大小 */
+}
+
+:lang(zh) {
+    font-family: "Noto Serif Traditional Chinese", sans-serif;
+    font-size: 18px; /* 中文字體稍大 */
+    font-weight: 500; /* 稍粗一點 */
 }
 
 h1 {
