@@ -12,9 +12,14 @@ body {
     font-weight: 500;
 }
 
-img {
-    width: 300px; /* 所有圖片預設寬度為 300px */
+.preview-img {
+    width: 200px; /* 所有圖片預設寬度為 300px */
     height: auto; /* 高度自動調整，保持比例 */
+}
+
+.project-img {
+    width: 500px; /* 專案頁面圖片寬度 */
+    height: auto;
 }
 
 /* 讓 `code`、`pre` 內的字體更清楚 */
