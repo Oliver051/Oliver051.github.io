@@ -14,8 +14,8 @@ body {
 
 h1 {
     font-size: 32px; /* 標題 1 設為 32 像素 */
-    font-weight: bold; /* 標題設為粗體 */
-    color: #0000FF; /* 標題設為藍色 */
+    font-weight: normal; /* 段落文字設為正常粗細 */
+    color: #000000; /* 標題設為藍色 */
 }
 
 h2 {
