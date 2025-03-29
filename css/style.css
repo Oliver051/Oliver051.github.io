@@ -18,9 +18,20 @@ h2 {
     color: #000000; /* 段落文字設為黑色 */
 }
 
-pre, code {
+pre {
     font-family: "Courier New", monospace;
+    font-size: 14px;
     background-color: #f4f4f4;
     padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow-x: auto;
+    white-space: pre;
+}
+
+code {
+    font-family: "Courier New", monospace;
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 3px;
 }
