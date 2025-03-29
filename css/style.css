@@ -17,3 +17,10 @@ h2 {
     font-weight: normal; /* 段落文字設為正常粗細 */
     color: #000000; /* 段落文字設為黑色 */
 }
+
+pre, code {
+    font-family: "Courier New", monospace;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
